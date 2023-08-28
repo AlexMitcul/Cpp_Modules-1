@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	}
 	int 			changes;
 	std::string		content;
-	std::ifstream	file_in;
+	std::ifstream	file_xn;
 	std::ofstream	file_out;
 	const char		*ptr_filein;
 	const char		*ptr_fileout;
@@ -33,18 +33,18 @@ int	main(int argc, char **argv)
 	std::string	str_fileout = str_filein + ".replace";
 	ptr_fileout = str_fileout.c_str();
 
-	file_in.open(ptr_filein);
+	file_xn.open(ptr_filein);
 	file_out.open(ptr_fileout);
-	if (!file_in.is_open() || !file_out.is_open()) {
-		if (file_in.is_open())
-			file_in.close();
+	if (!file_xn.is_open() || !file_out.is_open()) {
+		if (file_xn.is_open())
+			file_xn.close();
 		if (file_out.is_open())
 			file_out.close();
 		std::cout << "Error while opening the files" << std::endl;
 		return (1);
 	}
 	changes = 0;
-	while (getline(file_in, content)) {
+	while (getline(file_xn, content)) {
 		if (content.find(s1) != std::string::npos) {
 			size_t	pos;
 
@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 		std::cout << content << std::endl;
 	}
 	std::cout << changes << " words were change" << std::endl;
-	file_in.close();
+	file_xn.close();
 	file_out.close();
 	return (0);
 }

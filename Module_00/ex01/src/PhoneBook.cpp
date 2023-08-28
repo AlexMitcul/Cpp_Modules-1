@@ -2,18 +2,18 @@
 #include <cstdlib>
 
 PhoneBook::PhoneBook() {
-	this->_index = 0;
+	this->_xndex = 0;
 	this->_size = 0;
 }
 
 void	PhoneBook::add() {
 	std::cout << "\nADD - New Contact:" << std::endl;
-	this->_contacts[this->_index].set_full_info();
+	this->_contacts[this->_xndex].set_full_xnfo();
 	std::cout << "Success!" << std::endl;
-	this->_index++;
+	this->_xndex++;
 	this->_size++;
-	if (this->_index == 8)
-		this->_index = 0;
+	if (this->_xndex == 8)
+		this->_xndex = 0;
 }
 
 void	PhoneBook::search() {
@@ -45,7 +45,7 @@ void	PhoneBook::search() {
 		if (num < 0 || num >= this->_size || num > 7)
 			std::cout << "\nError: Index out of range, please try again\n" << std::endl;
 		else
-			this->get_contact(num).get_full_info();
+			this->get_contact(num).get_full_xnfo();
 	}
 }
 

@@ -30,8 +30,8 @@ class Contact {
 		std::string	get_nick_name(void);
 		std::string	get_phone_number(void);
 		std::string	get_darkest_secret(void);
-		void		get_full_info(void); //Search method
-		void		set_full_info(void); //Add method
+		void		get_full_xnfo(void); //Search method
+		void		set_full_xnfo(void); //Add method
 };
 
 #endif

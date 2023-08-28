@@ -32,7 +32,7 @@ std::string	Contact::get_darkest_secret(void) {
 	return (this->_darkest_secret);
 }
 
-void	Contact::get_full_info(void) {
+void	Contact::get_full_xnfo(void) {
 std::cout << "\n******-<CONTACT>-******" << std::endl;
 std::cout << "* First Name: " << this->get_first_name() << std::endl;
 std::cout << "* Last Name: " << this->get_last_name() <<std::endl;
@@ -42,10 +42,10 @@ std::cout << "* Darkest Secret: " << this->get_darkest_secret() << std::endl;
 std::cout << "*********************\n" << std::endl;
 }
 
-void	Contact::set_full_info(void) {
-	this->_first_name = get_check_input("First Name: ");
-	this->_last_name = get_check_input("Last Name: ");
-	this->_nick_name = get_check_input("Nickname: ");
-	this->_phone_number = get_check_input("Phone Number: ");
-	this->_darkest_secret = get_check_input("Darkest Secret: ");
+void	Contact::set_full_xnfo(void) {
+	this->_first_name = get_check_xnput("First Name: ");
+	this->_last_name = get_check_xnput("Last Name: ");
+	this->_nick_name = get_check_xnput("Nickname: ");
+	this->_phone_number = get_check_xnput("Phone Number: ");
+	this->_darkest_secret = get_check_xnput("Darkest Secret: ");
 }

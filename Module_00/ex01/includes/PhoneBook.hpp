@@ -18,7 +18,7 @@
 
 class PhoneBook {
 	private:
-		int		_index;
+		int		_xndex;
 		int		_size;
 		Contact	_contacts[8];
 

@@ -12,7 +12,7 @@
 
 #include "../includes/header.hpp"
 
-std::string	get_check_input(std::string str)
+std::string	get_check_xnput(std::string str)
 {
 	std::string	input;
 
