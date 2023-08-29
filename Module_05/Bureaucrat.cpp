@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:36:09 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/29 13:53:57 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:09:35 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src) {
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
 	if (this != &src) {
-		const_cast<std::string&>(this->_name) = src._name; // const name 
+		const_cast<std::string&>(this->_name) = src._name; // const name
 		this->_grade = src._grade;
 	}
 	std::cout << this->type << " " << this->_name << " copy assignment called\n";
@@ -84,6 +84,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& src) {
-	os << src.type << " " << src.getName() << " grade: " << src.getGrade() << std::endl;
+	os << src.type << " " << src.getName() << " " << src.getGrade() << std::endl;
 	return (os);
 }

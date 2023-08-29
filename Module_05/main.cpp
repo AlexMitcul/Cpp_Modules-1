@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:50:46 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/29 13:43:09 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:36:56 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,84 @@ int	main(void) {
 		Bureaucrat bur3(bur1);
 		Bureaucrat bur4;
 		bur4 = bur2;
+
+		std::cout << std::endl;
+		std::cout << std::endl;
+		std::cout << "bur1> " << bur1;
+		std::cout << "bur2> " << bur2;
+		std::cout << "bur3> " << bur3;
+		std::cout << "bur4> " << bur4;
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	{ // Case GradeTooHigh
+		std::cout << "- Exception <Grade to High>" << std::endl;
+		try {
+			Bureaucrat obj("Bot", 0);
+		}
+		catch (std::exception& execpt) {
+			std::cerr << execpt.what() << std::endl;
+			//std::cout << "Bot_1>" << obj; obj; OBJ doesn't exist in this scope
+		}
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	{ // Case GradeTooLow
+		std::cout << "- Exception <Grade to Low>" << std::endl;
+		try {
+			Bureaucrat obj("Bot", 151);
+		}
+		catch (std::exception& execpt) {
+			std::cerr << execpt.what() << std::endl;
+			// std::cout << "Bot_2>" << obj; OBJ doesn't exist in this scope
+		}
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	{ // Case Operation over the limits
+		std::cout << "- Exception <Grade to high/low>" << std::endl;
+		try {
+			Bureaucrat obj("Bot", 1);
+			obj.incrementGrade();
+			std::cout << "Obj>" << obj;
+		}
+		catch (std::exception& execpt) {
+			std::cerr << execpt.what() << std::endl;
+		}
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	{ // Case Operation over the limits
+		std::cout << "- Exception <Grade to high/low>" << std::endl;
+		try {
+			Bureaucrat obj("Bot_3", 150);
+			obj.decrementGrade();
+			std::cout << "Obj>" << obj;
+		}
+		catch (std::exception& execpt) {
+			std::cerr << execpt.what() << std::endl;
+		}
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	{ // Case Operation over the limits
+		std::cout << "- No Exception" << std::endl;
+		try {
+			Bureaucrat obj("Bot_3", 90);
+			obj.incrementGrade();
+			std::cout << "Obj>" << obj;
+			obj.incrementGrade();
+			std::cout << "Obj>" << obj;
+			obj.decrementGrade();
+			std::cout << "Obj>" << obj;
+			obj.decrementGrade();
+			std::cout << "Obj>" << obj;
+			obj.decrementGrade();
+			std::cout << "Obj>" << obj;
+		}
+		catch (std::exception& execpt) {
+			std::cerr << execpt.what() << std::endl;
+		}
 	}
 	return (0);
 }
