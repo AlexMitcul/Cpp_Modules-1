@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:50:46 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/29 14:36:56 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/08/29 15:16:46 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(void) {
 	{ // Case Operation over the limits
 		std::cout << "- Exception <Grade to high/low>" << std::endl;
 		try {
-			Bureaucrat obj("Bot_3", 150);
+			Bureaucrat obj("Bot", 150);
 			obj.decrementGrade();
 			std::cout << "Obj>" << obj;
 		}
@@ -82,17 +82,17 @@ int	main(void) {
 	{ // Case Operation over the limits
 		std::cout << "- No Exception" << std::endl;
 		try {
-			Bureaucrat obj("Bot_3", 90);
+			Bureaucrat obj("Bot", 90);
 			obj.incrementGrade();
-			std::cout << "Obj>" << obj;
+			std::cout << obj;
 			obj.incrementGrade();
-			std::cout << "Obj>" << obj;
+			std::cout << obj;
 			obj.decrementGrade();
-			std::cout << "Obj>" << obj;
+			std::cout << obj;
 			obj.decrementGrade();
-			std::cout << "Obj>" << obj;
+			std::cout << obj;
 			obj.decrementGrade();
-			std::cout << "Obj>" << obj;
+			std::cout << obj;
 		}
 		catch (std::exception& execpt) {
 			std::cerr << execpt.what() << std::endl;

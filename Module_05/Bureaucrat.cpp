@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:36:09 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/29 14:09:35 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/08/29 15:15:14 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& src) {
-	os << src.type << " " << src.getName() << " " << src.getGrade() << std::endl;
+	os << src.getName() << ", " << src.type << " grade " << src.getGrade() << std::endl;
 	return (os);
 }
