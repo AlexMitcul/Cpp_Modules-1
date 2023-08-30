@@ -6,9 +6,11 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:27:45 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/30 12:35:23 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:07:14 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once // Prevents multiple includes.
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
@@ -16,6 +18,9 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include "Form.hpp"
+
+class Form; //Forward declaration
 
 class Bureaucrat {
 	private:
@@ -24,7 +29,8 @@ class Bureaucrat {
 
 	public:
 		// friend std::ostream& operator<<(std::ostream& os, Bureaucrat& src);
-		void	signForm(Bureaucrat& bureaucrat, bool sign) const;
+		void	signForm(Bureaucrat& bureaucrat, bool sign) const; // Old version
+		void	signForm(Bureaucrat& bureaucrat, Form& form) const; // This func overload is better, It works directly with the obj
 
 		static const std::string type;
 		Bureaucrat(void);

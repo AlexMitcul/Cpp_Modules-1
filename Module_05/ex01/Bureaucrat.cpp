@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:36:09 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/30 11:11:02 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:07:23 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,11 @@ void	Bureaucrat::signForm(Bureaucrat& bureaucrat, bool sign) const {
 		std::cout << bureaucrat._name << " signed " << "a form" << std::endl;
 	else
 		std::cout << bureaucrat._name << " couldn't sign " << "a form because of his grade" << std::endl;
+}
+
+void	Bureaucrat::signForm(Bureaucrat& bureaucrat, Form& form) const {
+	if (form.getSign())
+		std::cout << bureaucrat._name << " signed " << form.getName() << std::endl;
+	else
+		std::cout << bureaucrat._name << " couldn't sign " << form.getName() << " because of his grade" << std::endl;
 }

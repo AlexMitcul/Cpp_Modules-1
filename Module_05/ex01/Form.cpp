@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:20:25 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/30 12:48:00 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:38:24 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	Form::checkGradeRange(int value) {
 
 }
 
-Form::Form(void) : _name("Generic Form"), _isSigned(false), _gradeToSign(150), _gradeToexecute(150) {
+Form::Form(void) : _name("Generic"), _isSigned(false), _gradeToSign(150), _gradeToexecute(150) {
 	std::cout << type << " " << this->_name << " default constructor called" << std::endl;
 }
 

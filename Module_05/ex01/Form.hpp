@@ -6,9 +6,11 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:20:25 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/30 12:23:46 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:13:23 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef FORM_HPP
 # define FORM_HPP
@@ -17,6 +19,8 @@
 # include <string>
 # include <exception>
 # include "Bureaucrat.hpp"
+
+class Bureaucrat; //Forward declaration
 
 class Form {
 	private:
@@ -33,7 +37,7 @@ class Form {
 		~Form(void);
 		Form(std::string name, int grade_to_sign, int grade_to_execute);
 		Form(const Form& src);
-		//Form& operator=(const Form& src);
+		//Form& operator=(const Form& src); // Getting a lot of problems while const int.
 
 		const std::string	getName(void) const;
 		bool	getSign(void) const;
