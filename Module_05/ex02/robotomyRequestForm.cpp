@@ -1,54 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   robotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 18:38:51 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/09/02 20:48:31 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/09/02 22:03:13 by kfaustin          #+#    #+#             */
+/*   Updated: 2023/09/02 22:15:47 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "robotomyRequestForm.hpp"
 
-const std::string	ShrubberyCreationForm::type = "ShrubberyCreationForm";
+const std::string	RobotomyRequestForm::type = "RobotomyRequestForm";
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm(type, 145, 137), _target("generic") {
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm(type, 72, 45), _target("Generic") {
 	std::cout << this->type << " " << this->_target << " default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm(void) {
+RobotomyRequestForm::~RobotomyRequestForm(void) {
 	std::cout << this->type << " " << this->_target << " destructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm(type, 145, 137), _target(target) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm(type, 72, 45), _target(target) {
 	std::cout << this->type << " " << this->_target << " constructor overload called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src) : AForm(type, 145, 137), _target(src._target) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : AForm(type, 72, 45), _target(src._target) {
 	std::cout << this->type << " " << this->_target << " copy constructor called" << std::endl;
 }
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src) {
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src) {
 	if (this != &src)
 		const_cast<std::string&>(this->_target) = src._target; // It isn't recommended
 	std::cout << this->type << " " << this->_target << " copy assignment called" << std::endl;
 	return (*this);
 }
 
-std::string	ShrubberyCreationForm::getTarget(void) const {
+std::string RobotomyRequestForm::getTarget(void) const {
 	return (this->_target);
 }
 
-void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
+static int	chance;
+
+void	RobotomyRequestForm::execute(const Bureaucrat &executor) const {
 	if (executor.getGrade() > this->getGradeToExecute())
-		throw Bureaucrat::GradeTooLowException();
+		throw (Bureaucrat::GradeTooLowException());
 	else if (!this->getSign())
-		throw AForm::FormNotSignedException();
+		throw (AForm::FormNotSignedException());
 	else {
-		std::ofstream outfile (this->getTarget().append("_shrubbery").c_str());
-		outfile << "BIG ASCII TREE\n";
-		outfile.close();
+		std::cout << "Drilling noise" << std::endl;
+		if ((++chance)%2 == 0)
+			std::cout << this->_target << " has been robotomized successfully" << std::endl;
+		else
+			std::cout << this->_target << " robotomy failed" << std::endl;
 	}
 }
