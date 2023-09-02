@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:27:45 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/30 14:07:14 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/02 15:43:45 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Form; //Forward declaration
 class Bureaucrat {
 	private:
 		const std::string	_name;
-		int	_grade;
+		int					_grade;
 
 	public:
 		// friend std::ostream& operator<<(std::ostream& os, Bureaucrat& src);

@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:36:09 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/30 14:07:23 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/02 15:44:19 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,13 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	std::cout << this->type << " " << this->_name << " constructor overload called\n";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) {
-	if (this != &src) {
-		const_cast<std::string&>(this->_name) = src._name; // Deep copy, src doesn't have allocated pointer or references.
-		this->_grade = src._grade;
-	}
+Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._grade) {
 	std::cout << this->type << " " << this->_name << " copy constructor called\n";
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat& src) {
 	if (this != &src) {
-		const_cast<std::string&>(this->_name) = src._name; // const name
+		const_cast<std::string&>(this->_name) = src._name; // You should not use const_cast to modify a const object unless you are certain that the original object was not originally declared as const.
 		this->_grade = src._grade;
 	}
 	std::cout << this->type << " " << this->_name << " copy assignment called\n";

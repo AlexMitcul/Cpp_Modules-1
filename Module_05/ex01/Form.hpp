@@ -25,9 +25,9 @@ class Bureaucrat; //Forward declaration
 class Form {
 	private:
 		const std::string	_name;
-		bool	_isSigned;
-		const int	_gradeToSign;
-		const int	_gradeToexecute;
+		bool				_isSigned;
+		const int			_gradeToSign;
+		const int			_gradeToexecute;
 
 	public:
 		static const std::string	type;
@@ -37,7 +37,7 @@ class Form {
 		~Form(void);
 		Form(std::string name, int grade_to_sign, int grade_to_execute);
 		Form(const Form& src);
-		//Form& operator=(const Form& src); // Getting a lot of problems while const int.
+		Form& operator=(const Form& src);
 
 		const std::string	getName(void) const;
 		bool	getSign(void) const;

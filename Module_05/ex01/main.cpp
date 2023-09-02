@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 10:42:40 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/30 14:40:04 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:40:51 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,23 @@
 
 int	main(void) {
 	{ //Default constructor
-		Bureaucrat bur;
+		Bureaucrat *bur = new Bureaucrat();
+		Bureaucrat *bu1 = new Bureaucrat(*bur);
+		Bureaucrat *bu2 = new Bureaucrat("New", 10);
 		Form form;
+		Form form1;
 		std::cout << std::endl;
 		std::cout << std::endl;
-		std::cout << bur;
+		std::cout << *bur;
 		std::cout << form;
 		std::cout << std::endl;
 		std::cout << std::endl;
+
+		(*bu2) = (*bu1);
+		//form1 = form; // Segfault > trying to modify stack variables (read only);
+		delete bur;
+		delete bu1;
+		delete bu2;
 	}
 	std::cout << std::endl;
 	{ // Constructor overload

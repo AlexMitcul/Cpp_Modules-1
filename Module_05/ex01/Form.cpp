@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:20:25 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/30 13:38:24 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:49:09 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	Form::checkGradeRange(int value) {
 	else if (value > 150)
 		throw (Form::GradeTooLowException());
 	return (value);
-
 }
 
 Form::Form(void) : _name("Generic"), _isSigned(false), _gradeToSign(150), _gradeToexecute(150) {
@@ -32,33 +31,24 @@ Form::~Form(void) {
 }
 
 Form::Form(std::string name, int grade_to_sign, int grade_to_execute) : _name(name), _isSigned(false), _gradeToSign(grade_to_sign), _gradeToexecute(grade_to_execute) {
-	//this->_gradeToSign = checkGradeRange(grade_to_sign);
-	//this->_gradeToexecute = checkGradeRange(grade_to_execute);
 	std::cout << type << " " << this->_name << " constructor overload called" << std::endl;
 }
 
 Form::Form(const Form& src) : _name(src._name), _isSigned(src._isSigned), _gradeToSign(src._gradeToSign), _gradeToexecute(src._gradeToexecute) {
+	std::cout << type << " " << this->_name << " copy constructor called" << std::endl;
+}
+
+Form &Form::operator=(const Form &src) {
 	/*if (this != &src) {
-		// *this = src;
-		this->_name = src._name;
+		const_cast<std::string&>(this->_name) = src._name; //It is not recommended
 		this->_isSigned = src._isSigned;
 		this->_gradeToSign = src._gradeToSign;
 		this->_gradeToexecute = src._gradeToexecute;
 	}*/
-	std::cout << type << " " << this->_name << " copy constructor called" << std::endl;
-}
-
-/*Form &Form::operator=(const Form &src) {
-	if (this != &src) {
-		// *this = src;
-		const_cast<std::string&>(this->_name) = src._name;
-		this->_isSigned = src._isSigned;
-		this->_gradeToSign = src._gradeToSign;
-		this->_gradeToexecute = src._gradeToexecute;
-	}
+	// const data member is read only, can't be changed after initialized
 	std::cout << type << " " << this->_name << " copy constructor called" << std::endl;
 	return (*this);
-}*/
+}
 
 const std::string	Form::getName(void) const {
 	return (this->_name);
