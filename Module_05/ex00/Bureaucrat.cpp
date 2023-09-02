@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:36:09 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/29 15:15:14 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:56:33 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	std::cout << this->type << " " << this->_name << " constructor overload called\n";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) {
-	if (this != &src) {
+Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._grade) {
+/*	if (this != &src) {
 		const_cast<std::string&>(this->_name) = src._name; // Deep copy, src doesn't have allocated pointer or references.
 		this->_grade = src._grade;
-	}
+	}*/
 	std::cout << this->type << " " << this->_name << " copy constructor called\n";
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
 	if (this != &src) {
-		const_cast<std::string&>(this->_name) = src._name; // const name
+		const_cast<std::string&>(this->_name) = src._name; // Not recommended to be doing this.
 		this->_grade = src._grade;
 	}
 	std::cout << this->type << " " << this->_name << " copy assignment called\n";

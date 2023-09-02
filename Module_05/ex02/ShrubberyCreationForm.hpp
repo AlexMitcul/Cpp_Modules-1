@@ -19,6 +19,10 @@
 
 class ShrubberyCreationForm : public AForm {
 	public:
+		ShrubberyCreationForm(void);
+		~ShrubberyCreationForm(void);
+		ShrubberyCreationForm(const ShrubberyCreationForm& src);
+		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& src);
 };
 
 

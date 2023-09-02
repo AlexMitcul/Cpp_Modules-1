@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:50:46 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/08/29 15:16:46 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:58:58 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void) {
 		Bureaucrat bur2("Mozart", 1);
 		Bureaucrat bur3(bur1);
 		Bureaucrat bur4;
-		bur4 = bur2;
+		bur4 = bur2; // This doesn't lead segfault because og the <const_cast> on the copy assignment
 
 		std::cout << std::endl;
 		std::cout << std::endl;
