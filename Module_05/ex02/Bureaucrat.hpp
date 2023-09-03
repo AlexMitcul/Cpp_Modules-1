@@ -29,7 +29,6 @@ class Bureaucrat {
 
 	public:
 		// friend std::ostream& operator<<(std::ostream& os, Bureaucrat& src);
-		void	signForm(Bureaucrat& bureaucrat, bool sign) const; // Old version
 		void	signForm(Bureaucrat& bureaucrat, AForm& form) const; // This func overload is better, It works directly with the obj
 
 		static const std::string type;

@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:36:09 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/09/02 18:38:27 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/03 12:38:40 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	std::cout << this->type << " " << this->_name << " constructor overload called\n";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) {
-	if (this != &src) {
-		const_cast<std::string&>(this->_name) = src._name; // Deep copy, src doesn't have allocated pointer or references.
-		this->_grade = src._grade;
-	}
+Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name) {
+	this->setGrade(src._grade);
 	std::cout << this->type << " " << this->_name << " copy constructor called\n";
 }
 
@@ -86,13 +83,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 std::ostream& operator<<(std::ostream& os, Bureaucrat& src) {
 	os << src.getName() << ", " << src.type << " grade " << src.getGrade() << std::endl;
 	return (os);
-}
-
-void	Bureaucrat::signForm(Bureaucrat& bureaucrat, bool sign) const {
-	if (sign)
-		std::cout << bureaucrat._name << " signed " << "a form" << std::endl;
-	else
-		std::cout << bureaucrat._name << " couldn't sign " << "a form because of his grade" << std::endl;
 }
 
 void	Bureaucrat::signForm(Bureaucrat& bureaucrat, AForm& form) const {

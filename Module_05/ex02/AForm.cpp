@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:32:16 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/09/02 20:32:16 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/03 14:07:21 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	AForm::beSigned(Bureaucrat& bureaucrat) {
 		this->_isSigned = true;
 	else
 		throw (AForm::GradeTooLowException());
-	bureaucrat.signForm(bureaucrat, this->_isSigned);
+	bureaucrat.signForm(bureaucrat, *this);
 }
 
 const char* AForm::GradeTooHighException::what() const throw() {

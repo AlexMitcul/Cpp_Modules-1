@@ -6,7 +6,7 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 18:38:51 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/09/02 20:48:31 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/03 12:27:14 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 const std::string	ShrubberyCreationForm::type = "ShrubberyCreationForm";
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm(type, 145, 137), _target("generic") {
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm(type, 145, 137), _target("Generic") {
 	std::cout << this->type << " " << this->_target << " default constructor called" << std::endl;
 }
 
@@ -50,5 +50,11 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 		std::ofstream outfile (this->getTarget().append("_shrubbery").c_str());
 		outfile << "BIG ASCII TREE\n";
 		outfile.close();
+		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 	}
+}
+
+std::ostream&	operator<<(std::ostream& os, ShrubberyCreationForm& src) {
+	os << src.type << " target: " << src.getTarget() << std::endl;
+	return (os);
 }

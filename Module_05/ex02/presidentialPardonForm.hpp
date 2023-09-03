@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   robotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   presidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 22:02:58 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/09/03 12:22:35 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/09/03 12:02:22 by kfaustin          #+#    #+#             */
+/*   Updated: 2023/09/03 12:11:05 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 # include <iostream>
 # include <string>
@@ -24,24 +24,24 @@ class AForm;
 
 class Bureaucrat;
 
-class RobotomyRequestForm : public AForm {
+class PresidentialPardonForm  : public AForm {
 	private:
 		const std::string	_target;
 
 	public:
 		static const std::string	type;
 
-		RobotomyRequestForm(void);
-		~RobotomyRequestForm(void);
-		RobotomyRequestForm(const std::string target);
-		RobotomyRequestForm(const RobotomyRequestForm& src);
-		RobotomyRequestForm& operator=(const RobotomyRequestForm& src);
+	PresidentialPardonForm(void);
+	~PresidentialPardonForm(void);
+	PresidentialPardonForm(const std::string target);
+	PresidentialPardonForm(const PresidentialPardonForm& src);
+	PresidentialPardonForm&	operator=(const PresidentialPardonForm& src);
 
-		std::string	getTarget(void) const;
+	std::string	getTarget(void) const;
 
-		virtual void	execute(const Bureaucrat& executor) const;
+	virtual void	execute(const Bureaucrat& executor) const;
 };
 
-std::ostream&	operator<<(std::ostream& os, RobotomyRequestForm& src);
+std::ostream&	operator<<(std::ostream& os, PresidentialPardonForm& src);
 
-#endif //ROBOTOMYREQUESTFORM_HPP
+#endif //PRESIDENTIALPARDONFORM_HPP
