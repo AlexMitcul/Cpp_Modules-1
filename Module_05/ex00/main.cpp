@@ -18,7 +18,7 @@ int	main(void) {
 		Bureaucrat bur2("Mozart", 1);
 		Bureaucrat bur3(bur1);
 		Bureaucrat bur4;
-		bur4 = bur2; // This doesn't lead segfault because og the <const_cast> on the copy assignment
+		bur4 = bur2; // This doesn't lead compiler error because the <const_cast> on the copy assignment
 
 		std::cout << std::endl;
 		std::cout << std::endl;

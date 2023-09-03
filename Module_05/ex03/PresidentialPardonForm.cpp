@@ -6,11 +6,11 @@
 /*   By: kfaustin <kfaustin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 12:07:54 by kfaustin          #+#    #+#             */
-/*   Updated: 2023/09/03 12:20:35 by kfaustin         ###   ########.fr       */
+/*   Updated: 2023/09/03 18:54:21 by kfaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "presidentialPardonForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 const std::string	PresidentialPardonForm::type = "PresidentialPardonForm";
 

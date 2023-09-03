@@ -3,7 +3,7 @@ CXX	= c++
 CCFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 NAME = bin
-SRC = AForm.cpp Bureaucrat.cpp main.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRC = AForm.cpp Bureaucrat.cpp Intern.cpp main.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -15,6 +15,6 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME) *_shrubbery
+	rm -f $(NAME)
 
 re: fclean all

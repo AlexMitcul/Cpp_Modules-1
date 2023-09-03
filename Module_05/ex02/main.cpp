@@ -13,8 +13,8 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "presidentialPardonForm.hpp"
-#include "robotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int	main(void) {
 	{ //Constructor test
